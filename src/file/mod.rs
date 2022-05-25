@@ -176,10 +176,11 @@ impl TempPath {
     /// # }
     /// ```
     pub fn close(mut self) -> io::Result<()> {
-        let result = fs::remove_file(&self.path).with_err_path(|| &*self.path);
+        // let result = fs::remove_file(&self.path).with_err_path(|| &*self.path);
         self.path = PathBuf::new().into_boxed_path();
         mem::forget(self);
-        result
+        // result
+        Ok(())
     }
 
     /// Persist the temporary file at the target path.
