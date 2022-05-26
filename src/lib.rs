@@ -167,7 +167,7 @@
 doc_comment::doctest!("../README.md");
 
 const NUM_RETRIES: u32 = 1 << 31;
-const NUM_RAND_CHARS: usize = 6;
+const NUM_RAND_CHARS: usize = 2;
 
 use std::ffi::OsStr;
 use std::fs::OpenOptions;
@@ -199,7 +199,7 @@ impl<'a, 'b> Default for Builder<'a, 'b> {
     fn default() -> Self {
         Builder {
             random_len: crate::NUM_RAND_CHARS,
-            prefix: OsStr::new(".tmp"),
+            prefix: OsStr::new("iox"),
             suffix: OsStr::new(""),
             append: false,
         }
